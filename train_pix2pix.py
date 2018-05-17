@@ -49,7 +49,7 @@ if __name__ == '__main__':
     img_rows = 256
     img_cols = 256
     channels = 3
-    epochs=200
+    epochs = 1000
     batch_size=16
     sample_interval=200
     img_shape = (img_rows, img_cols, channels)
