@@ -1,2 +1,4 @@
 *.pyc
-data/
+data/datasets/
+data/weights/
+logs/
