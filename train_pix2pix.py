@@ -53,7 +53,7 @@ if __name__ == '__main__':
     batch_size=16
     sample_interval=200
     img_shape = (img_rows, img_cols, channels)
-    dataset_name = 'facades'
+    dataset_name = 'edges2handbags'
     data_loader = DataLoader(dataset_name=dataset_name, img_res=(img_rows, img_cols))
 
     # Calculate output shape of D (PatchGAN)
@@ -102,8 +102,8 @@ if __name__ == '__main__':
     fake = np.zeros((batch_size,) + disc_patch)
 
     print("Training Start ...")
-    generator.save('./data/weights/pix2pix/generator.h5')
-    discriminator.save('./data/weights/pix2pix/discriminator.h5')
+    generator.save('./data/weights/pix2pix/'+dataset_name+'_generator.h5')
+    discriminator.save('./data/weights/pix2pix/'+dataset_name+'_discriminator.h5')
     for epoch in range(epochs):
         for batch_i, (imgs_A, imgs_B) in enumerate(data_loader.load_batch(batch_size)):
             # Condition on B and generate a translated version
@@ -131,5 +131,5 @@ if __name__ == '__main__':
             # If at save interval => save generated image samples
             # if batch_i % sample_interval == 0:
                 # sample_images(epoch, batch_i, dataset_name, data_loader, generator)
-        generator.save('./data/weights/pix2pix/generator.h5')
-        discriminator.save('./data/weights/pix2pix/discriminator.h5')
+        generator.save('./data/weights/pix2pix/'+dataset_name+'_generator.h5')
+        discriminator.save('./data/weights/pix2pix/'+dataset_name+'_discriminator.h5')

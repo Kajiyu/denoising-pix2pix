@@ -1,4 +1,5 @@
 *.pyc
+*.ipynb
 data/datasets/
 data/weights/
 logs/
